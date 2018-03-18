@@ -8,11 +8,18 @@
   <artifactId>wlf-security-demo</artifactId>
   
   <dependencies>
+  
   	<dependency>
   		<groupId>com.wlf.security</groupId>
   		<artifactId>wlf-security-browser</artifactId>
   		<version>${wlf.security.version}</version>
   	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-test</artifactId>
+  	</dependency>
+  	
   </dependencies>
   
   <build>  

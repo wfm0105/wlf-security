@@ -32,7 +32,7 @@ public class UserControllerTest {
 	
 	@Test
 	public void whenQuerySuccess() throws Exception {
-		mockMvc.perform(get("/user")
+		String result = mockMvc.perform(get("/user")
 			   .param("username", "admin")
 			   .param("status", "1")
 			   .param("size", "6")
@@ -40,7 +40,28 @@ public class UserControllerTest {
 			   .param("sort", "username")
 			   .contentType(MediaType.APPLICATION_JSON_UTF8))
 			   .andExpect(status().isOk())
-			   .andExpect(jsonPath("$.length()").value(3));
+			   .andExpect(jsonPath("$.length()").value(3))
+			   .andReturn().getResponse().getContentAsString();
+	
+		System.out.println(result);
+	}
+	
+	@Test
+	public void whenGetInfoSuccess() throws Exception {
+		String result = mockMvc.perform(get("/user/1")
+					.contentType(MediaType.APPLICATION_JSON_UTF8))
+				    .andExpect(status().isOk())
+				    .andExpect(jsonPath("$.username").value("admin"))
+				    .andReturn().getResponse().getContentAsString();
+		
+		System.out.println(result);
+	}
+	
+	@Test
+	public void whenGetInfoFail() throws Exception {
+		mockMvc.perform(get("/user/a")
+					.contentType(MediaType.APPLICATION_JSON_UTF8))
+					.andExpect(status().is4xxClientError());
 	}
 	
 }

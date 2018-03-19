@@ -10,6 +10,12 @@
   <dependencies>
   
   	<dependency>
+  		<groupId>com.wlf</groupId>
+  		<artifactId>wlf-ms-core</artifactId>
+  		<version>${wlf.ms.version}</version>
+  	</dependency>
+  
+  	<dependency>
   		<groupId>org.springframework.cloud</groupId>
   		<artifactId>spring-cloud-starter-oauth2</artifactId>
   	</dependency>

@@ -57,13 +57,11 @@ public class UserController {
 	@PostMapping
 	@JsonView(User.UserSimpleView.class)
 	public User create(@Valid @RequestBody() User user) {
-		
 		user.setUserid("1");
 		user.setUsername("admin");
 		user.setPassword("123456");
 		
 		return user;
-		
 	}
 	
 	@PutMapping("/{userid:\\d+}")

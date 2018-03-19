@@ -1,7 +1,9 @@
 package com.wlf.web.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -74,6 +76,24 @@ public class UserControllerTest {
 					.content(content))
 					.andExpect(status().isOk())
 					.andExpect(jsonPath("$.userid").value("1"));
+	}
+	
+	@Test
+	public void whenUpdateSuccess() throws Exception {
+		String content = "{\"id\":\"1\",\"username\":\"admin\",\"password\":null}";
+		
+		mockMvc.perform(put("/user/1")
+					.contentType(MediaType.APPLICATION_JSON_UTF8)
+					.content(content))
+					.andExpect(status().isOk())
+					.andExpect(jsonPath("$.userid").value("1"));
+	}
+	
+	@Test
+	public void whenDeleteSuccess() throws Exception {
+		mockMvc.perform(delete("/user/1")
+					.contentType(MediaType.APPLICATION_JSON_UTF8))
+					.andExpect(status().isOk());
 	}
 	
 }

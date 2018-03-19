@@ -1,6 +1,9 @@
 package com.wlf.dto;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -12,8 +15,15 @@ public class User implements Serializable {
 	public interface UserDetailView extends UserSimpleView {};
 	
 	private String userid;
+	
 	private String username;
+	
+	@NotBlank
 	private String password;
+	
+	private Date createDate;
+	
+	private int createBy;
 	
 	@JsonView(UserSimpleView.class)
 	public String getUserid() {
@@ -40,6 +50,24 @@ public class User implements Serializable {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@JsonView(UserSimpleView.class)
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	@JsonView(UserSimpleView.class)
+	public int getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy(int createBy) {
+		this.createBy = createBy;
 	}
 	
 }

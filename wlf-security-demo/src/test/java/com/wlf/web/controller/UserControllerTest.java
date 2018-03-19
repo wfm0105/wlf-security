@@ -1,6 +1,7 @@
 package com.wlf.web.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -62,6 +63,17 @@ public class UserControllerTest {
 		mockMvc.perform(get("/user/a")
 					.contentType(MediaType.APPLICATION_JSON_UTF8))
 					.andExpect(status().is4xxClientError());
+	}
+	
+	@Test
+	public void whenCreateSuccess() throws Exception {
+		String content = "{\"username\":\"admin\",\"password\":null}";
+		
+		mockMvc.perform(post("/user")
+					.contentType(MediaType.APPLICATION_JSON_UTF8)
+					.content(content))
+					.andExpect(status().isOk())
+					.andExpect(jsonPath("$.userid").value("1"));
 	}
 	
 }

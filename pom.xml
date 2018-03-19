@@ -15,6 +15,7 @@
   	<spring.platform.version>Athens-SR2</spring.platform.version>
   	<spring-cloud.version>Dalston.SR5</spring-cloud.version>
   	<wlf.security.version>1.0.0</wlf.security.version>
+  	<wlf.ms.version>1.0.0</wlf.ms.version>
   </properties>
   
   <dependencyManagement>

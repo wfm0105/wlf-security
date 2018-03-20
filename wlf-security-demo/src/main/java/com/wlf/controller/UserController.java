@@ -27,6 +27,9 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.wlf.dto.User;
 import com.wlf.dto.UserQueryCondition;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -35,7 +38,8 @@ public class UserController {
 	
 	@GetMapping
 	@JsonView(User.UserSimpleView.class) 
-	public List<User> query(UserQueryCondition userCondition, 
+	@ApiOperation(value="用户查询服务")
+	public List<User> query(@Valid UserQueryCondition userCondition, 
 							@PageableDefault(page=1, size=6, sort="username") Pageable page){
 		logger.info(ReflectionToStringBuilder.toString(userCondition, ToStringStyle.MULTI_LINE_STYLE));
 		logger.info(""+page.getPageNumber());
@@ -46,7 +50,8 @@ public class UserController {
 	
 	@GetMapping("/{userid:\\d+}")
 	@JsonView(User.UserDetailView.class)
-	public User getInfo(@PathVariable("userid") String userid) {
+	@ApiOperation(value="根据id查询用户服务")
+	public User getInfo(@ApiParam(value="用户id") @PathVariable("userid") String userid) {
 		User user = new User();
 		user.setUserid("1");
 		user.setUsername("admin");
@@ -56,6 +61,7 @@ public class UserController {
 	
 	@PostMapping
 	@JsonView(User.UserSimpleView.class)
+	@ApiOperation(value="新增用户服务")
 	public User create(@Valid @RequestBody() User user) {
 		user.setUserid("1");
 		user.setUsername("admin");
@@ -65,6 +71,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/{userid:\\d+}")
+	@ApiOperation(value="修改用户服务")
 	public User update(@Valid @RequestBody() User user) {
 		
 		user.setUserid("1");
@@ -76,7 +83,8 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/{userid:\\d+}")
-	public void delete(@PathVariable("userid") String userid) {
+	@ApiOperation(value="删除用户服务")
+	public void delete(@ApiParam(value="用户id") @PathVariable("userid") String userid) {
 		logger.info("UserController.delete");
 	}
 	

@@ -8,6 +8,10 @@ spring:
   session: 
     store-type: none
     
+server: 
+  port: 8080    
+  context-path:  /userApi/rest
+    
 security:
   basic:
     enabled: false

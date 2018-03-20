@@ -7,6 +7,8 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 4093364932444483755L;
@@ -14,15 +16,20 @@ public class User implements Serializable {
 	public interface UserSimpleView {};
 	public interface UserDetailView extends UserSimpleView {};
 	
+	@ApiModelProperty(value="用户id")
 	private String userid;
 	
+	@ApiModelProperty(value="用户名")
 	private String username;
 	
 	@NotBlank(message="密码不能为空！")
+	@ApiModelProperty(value="密码")
 	private String password;
 	
+	@ApiModelProperty(value="创建时间")
 	private Date createDate;
 	
+	@ApiModelProperty(value="创建人")
 	private int createBy;
 	
 	@JsonView(UserSimpleView.class)

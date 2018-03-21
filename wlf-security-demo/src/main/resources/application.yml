@@ -13,5 +13,5 @@ server:
   context-path:  /userApi/rest
     
 security:
-  basic:
-    enabled: false
+  basic: 
+    enabled: true

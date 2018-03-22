@@ -11,4 +11,6 @@ public class Contants {
 
 	public static final String DEFAULT_LOGIN_PAGE = "/defaultLogin.html";
 	
+	public static final String DEFAULT_FAILURE_PAGE = "/defaultFailure.html";
+	
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>安全服务默认登录页demo</title>
+<title>安全服务默认登录页</title>
 
 <style>
 body{overflow:hidden;}
@@ -14,8 +14,8 @@ body{overflow:hidden;}
 	    <div class="loginbox">
 	    	<form action="/securityDemoApi/rest/authentication/form" method="post">
 		    <ul> 
-		    <li><input style=" outline:medium;" id="username" type="text" class="loginuser" placeholder="用 户"/></li>
-		    <li><input style=" outline:medium;" id="password" type="password" class="loginpwd" placeholder="密 码"/></li>
+		    <li><input style=" outline:medium;" id="username" name="username" type="text" class="loginuser" placeholder="用 户"/></li>
+		    <li><input style=" outline:medium;" id="password" name="password" type="password" class="loginpwd" placeholder="密 码"/></li>
 		    <li><button name="" type="submit">登录</button><label><input name="" type="checkbox" id="ck_rmbUser" value=""/>记住密码</label><label><a href="javascript:void(0)" onclick="toForget();">忘记密码？</a></label></li>
 		    </ul>
 		    </form>

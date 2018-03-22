@@ -7,14 +7,29 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.wlf.security.browser.authentication.DefaultAuthenticationFailureHandler;
 import com.wlf.security.core.properties.SecurityProperties;
 
+/**
+ * 
+ * web端安全配置
+ * 
+ * @author wulinfeng
+ *
+ */
 @Configuration
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private SecurityProperties securityProperties;
+	
+	@Autowired
+	private AuthenticationSuccessHandler defaultAuthenticationSuccessHandler;
+
+	@Autowired
+	private DefaultAuthenticationFailureHandler defaultAuthenticationFailureHandler;
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -27,6 +42,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.formLogin()
 			 .loginPage("/authentication/require")
 			 .loginProcessingUrl("/authentication/form")
+			 .successHandler(defaultAuthenticationSuccessHandler)
+			 .failureHandler(defaultAuthenticationFailureHandler)
 			 .and()
 			 .authorizeRequests()
 			 .antMatchers("/authentication/require",securityProperties.getBrowser().getLoginPage()).permitAll()

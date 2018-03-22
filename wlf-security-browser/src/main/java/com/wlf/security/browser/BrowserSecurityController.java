@@ -23,6 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wlf.security.core.properties.SecurityProperties;
 
+/**
+ * 
+ * 统一安全服务处理
+ * 
+ * @author wulinfeng
+ *
+ */
 @RestController
 public class BrowserSecurityController {
 	
@@ -31,9 +38,6 @@ public class BrowserSecurityController {
 	private RequestCache requestCache = new HttpSessionRequestCache();
 	
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-	
-	//@Value("${wlf.security.browser.loginPage}")
-	//private String loginPage;
 	
 	@Autowired
 	private SecurityProperties securityProperties;

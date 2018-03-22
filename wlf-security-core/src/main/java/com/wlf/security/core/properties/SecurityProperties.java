@@ -2,6 +2,13 @@ package com.wlf.security.core.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * 
+ * 配置项管理
+ * 
+ * @author wulinfeng
+ *
+ */
 @ConfigurationProperties(prefix = "wlf.security")
 public class SecurityProperties {
 

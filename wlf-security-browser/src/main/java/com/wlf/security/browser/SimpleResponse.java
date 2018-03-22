@@ -1,5 +1,12 @@
 package com.wlf.security.browser;
 
+/**
+ * 
+ * 统一返回的封装
+ * 
+ * @author wulinfeng
+ *
+ */
 public class SimpleResponse {
 
 	private Object content;

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>安全服务默认登录页demo</title>
+
+<style>
+body{overflow:hidden;}
+</style>
+</head>
+<body style="background-color:#3691c6;background-image:url(static/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
+	<div class="logintop">
+	    <img src="images/logo01.png">    
+	    <ul><li><img src="images/phone.png"></img></li></ul>    
+    </div>
+    <div class="loginbody">
+	    <div class="tp"><img src="images/bg.png"></div>
+	    <span class="systemlogo"></span>
+	    <div class="loginbox">
+		    <ul>
+		    <li><input style=" outline:medium;" id="username" type="text" class="loginuser" placeholder="用 户"/></li>
+		    <li><input style=" outline:medium;" id="password" type="password" class="loginpwd" placeholder="密 码"/></li>
+		    <li><input name="" type="button" class="loginbtn" value="登  录"  onclick="login();"  /><label><input name="" type="checkbox" id="ck_rmbUser" value=""/>记住密码</label><label><a href="javascript:void(0)" onclick="toForget();">忘记密码？</a></label></li>
+		    </ul>
+		    <a href="javascript:void(0)" onclick="createImgValidateCode();"></a>
+	    </div>
+    </div>
+
+</body>
+</html>

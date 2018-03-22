@@ -10,8 +10,13 @@ spring:
     
 server: 
   port: 8080    
-  context-path:  /userApi/rest
+  context-path:  /securityDemoApi/rest
     
 security:
   basic: 
     enabled: true
+    
+wlf:  
+  security: 
+    browser:  
+      loginPage : http://localhost/securityDemo/login.html

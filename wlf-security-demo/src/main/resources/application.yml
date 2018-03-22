@@ -16,7 +16,7 @@ security:
   basic: 
     enabled: true
     
-wlf:  
-  security: 
-    browser:  
-      loginPage : http://localhost/securityDemo/login.html
+#wlf:  
+  #security: 
+    #browser:  
+      #loginPage : http://localhost/securityDemo/login.html

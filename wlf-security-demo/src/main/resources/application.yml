@@ -5,6 +5,20 @@ spring:
     username: root
     password: nmamtf
     
+  redis: 
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: nmamtf333126
+    pool: 
+      max-active: 8
+      max-wait: 1
+      min-idle: 0
+    timeout: 0
+    
+  cache: 
+    type: redis
+    
   session: 
     store-type: none
     
@@ -19,5 +33,11 @@ security:
 wlf:  
   security: 
     browser:  
-      loginPage : http://localhost/securityDemo/login.html
+      #loginPage : http://localhost/securityDemo/login.html
       loginType : JSON
+    validateCode: 
+      imageCode: 
+        imageCodeStoreMethod: REDIS
+        imageCodeWidth: 160
+        imageCodeLength: 6
+        imageCodeType: ENGLISH_CHARACTER_NUMBER

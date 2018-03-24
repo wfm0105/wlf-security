@@ -16,6 +16,7 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
+import com.wlf.security.browser.SimpleResponse;
 import com.wlf.security.core.properties.LoginType;
 import com.wlf.security.core.properties.SecurityProperties;
 
@@ -38,7 +39,7 @@ public class DefaultAuthenticationFailureHandler extends SimpleUrlAuthentication
 		if(LoginType.JSON.equals(securityProperties.getBrowser().getLoginType())) {
 			response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			response.setContentType("application/json;charset=utf-8");
-			response.getWriter().write(gson.toJson(exception));
+			response.getWriter().write(gson.toJson(new SimpleResponse(exception.getMessage())));
 		} else {
 			setDefaultFailureUrl(securityProperties.getBrowser().getFailurePage());
 			super.onAuthenticationFailure(request, response, exception);

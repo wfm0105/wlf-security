@@ -10,10 +10,10 @@ package com.wlf.security.core.properties;
 public class BrowserProperties {
 
 	// 登录页面
-	private String loginPage = Contants.DEFAULT_LOGIN_PAGE;
+	private String loginPage = Constants.DEFAULT_LOGIN_PAGE;
 
 	// 错误页面，返回类型为REDIRECT时才起作用
-	private String failurePage = Contants.DEFAULT_FAILURE_PAGE;
+	private String failurePage = Constants.DEFAULT_FAILURE_PAGE;
 	
 	// 返回类型
 	private LoginType loginType = LoginType.JSON;

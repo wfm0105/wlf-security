@@ -34,7 +34,8 @@ wlf:
   security: 
     browser:  
       #loginPage : http://localhost/securityDemo/login.html
-      loginType : JSON
+      loginType: JSON
+      createTable: false
     validateCode: 
       imageCode: 
         imageCodeStoreMethod: REDIS

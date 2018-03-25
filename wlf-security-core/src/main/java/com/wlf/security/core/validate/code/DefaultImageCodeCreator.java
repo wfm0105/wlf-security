@@ -7,6 +7,13 @@ import org.springframework.stereotype.Component;
 import com.wlf.util.ImgValidateCodeUtil;
 import com.wlf.util.ImgValidateCodeUtil.Type;
 
+/**
+ * 
+ * 验证码的默认实现
+ * 
+ * @author wulinfeng
+ *
+ */
 @Component("defaultImageCodeCreator")
 public class DefaultImageCodeCreator implements ImageCodeCreator {
 

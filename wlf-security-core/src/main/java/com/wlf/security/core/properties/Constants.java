@@ -52,5 +52,6 @@ public class Constants {
 
 	public static final String DEFAULT_IMAGE_CODE_TYPE_PARAM_NAME = "imageCodeType";
 
+	public static final String DEFAULT_REMOBER_ME_NAME = "remember-me";
 	
 }

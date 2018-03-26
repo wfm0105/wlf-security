@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.wlf.security.core.validate.code.DefaultImageCodeCreator;
-import com.wlf.security.core.validate.code.ImageCodeCreator;
+import com.wlf.security.core.validate.code.image.DefaultImageCodeCreator;
+import com.wlf.security.core.validate.code.image.ImageCodeCreator;
 
 /**
  * 
@@ -22,14 +22,9 @@ import com.wlf.security.core.validate.code.ImageCodeCreator;
 public class SecurityCoreConfig {
 	
 	@Bean
+	@ConditionalOnMissingBean(PasswordEncoder.class)
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
-	}
-	
-	@Bean
-	@ConditionalOnMissingBean(name = "defaultImageCodeCreator")
-	public ImageCodeCreator imageCodeCreator() {
-		return new DefaultImageCodeCreator();
 	}
 	
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>安全服务默认登录页</title>
+<title>安全服务默认表单登录页</title>
 
 <style>
 body{overflow:hidden;}
@@ -17,6 +17,17 @@ body{overflow:hidden;}
 		    <li><input style=" outline:medium;" id="username" name="username" type="text" class="loginuser" placeholder="用 户"/></li>
 		    <li><input style=" outline:medium;" id="password" name="password" type="password" class="loginpwd" placeholder="密 码"/></li>
 		    <li><input style=" outline:medium;" id="imageCode" name="imageCode" type="text"/><img id="imgValidateCode" onclick="createImgValidateCode();" src="images/loginewm.png"/></li>
+		    <li><label><input id="remember-me" name="remember-me" type="checkbox"/>记住我</label><label><a href="javascript:void(0)" onclick="toForget();">忘记密码？</a></label></li>
+		    <li><button name="" type="submit">登录</button></li>
+		    </ul>
+		    </form>
+	    </div>
+	    
+	    <div class="loginbox">
+	    	<form action="/securityDemoApi/rest/authentication/mobile" method="post">
+		    <ul> 
+		    <li><input style=" outline:medium;" id="mobile" name="mobile" type="text" class="loginuser" placeholder="手机号"/></li>
+		    <li><input style=" outline:medium;" id="smsCode" name="smsCode" type="text" class="loginpwd" placeholder="短信验证码"/><a href="#" onclick="sendSmsCode()">发送验证码</a></li>
 		    <li><label><input id="remember-me" name="remember-me" type="checkbox"/>记住我</label><label><a href="javascript:void(0)" onclick="toForget();">忘记密码？</a></label></li>
 		    <li><button name="" type="submit">登录</button></li>
 		    </ul>
@@ -43,7 +54,26 @@ body{overflow:hidden;}
 			   }
 			});
 		}
+		
 		createImgValidateCode();
+		
+		function sendSmsCode(){
+			$.ajax({
+			   url: "code/sms?mobile="+$('#mobile').val(),
+			   type: 'GET',
+			   success: function(response) {
+				    if(response.code=="500"){
+				    	alert('生成验证码失败');
+				    }
+				    else{
+				    	alert('已发送验证码');
+				    }
+			   },
+			   error:function(response){
+				   aler('生成验证码失败');
+			   }
+			});
+		}
 	</script>
 
 </body>

@@ -1,25 +1,21 @@
-package com.wlf.security.core.validate.code;
+package com.wlf.security.core.validate.code.image;
 
 import java.time.LocalDateTime;
 
-public class ImageCode {
+import com.wlf.security.core.validate.code.ValidateCode;
+
+public class ImageCode extends ValidateCode {
 
 	private String image;
-	
-	private String code;
-	
-	private LocalDateTime expireTime;
 
 	public ImageCode(String image, String code, int expireIn) {
+		super(code, expireIn);
 		this.image = image;
-		this.code = code;
-		this.expireTime = LocalDateTime.now().plusSeconds(expireIn);
 	}
 	
 	public ImageCode(String image, String code, LocalDateTime expireTime) {
+		super(code, expireTime);
 		this.image = image;
-		this.code = code;
-		this.expireTime = expireTime;
 	}
 	
 	public boolean isExpired() {

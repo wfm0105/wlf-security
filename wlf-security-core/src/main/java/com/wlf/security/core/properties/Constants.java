@@ -54,4 +54,22 @@ public class Constants {
 
 	public static final String DEFAULT_REMOBER_ME_NAME = "remember-me";
 	
+	public static final StoreMethod DEFAULT_SMS_CODE_STORE_METHOD = StoreMethod.SESSION;
+	
+	public static final String DEFAULT_SMS_CODE_SESSION_KEY = "/default_sms_code_session_key";
+	
+	public static final String DEFAULT_SMS_CODE_KEY_PREFIX = "/default_sms_code_key_";
+
+	public static final int DEFAULT_SMS_CODE_LENGTH = 6;
+	
+	public static final String DEFAULT_SMS_CODE_LENGTH_PARAM_NAME = "smsCodeLength";
+	
+	public static final int DEFAULT_SMS_CODE_EXPIRE = 60;
+	
+	public static final String DEFAULT_SMS_CODE_PARAM_NAME = "mobile";
+	
+	public static final String DEFAULT_PARAMETER_NAME_CODE_IMAGE = "image";
+	
+	public static final String DEFAULT_PARAMETER_NAME_CODE_SMS = "sms";
+	
 }

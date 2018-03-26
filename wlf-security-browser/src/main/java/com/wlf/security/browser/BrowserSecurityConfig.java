@@ -20,8 +20,9 @@ import com.wlf.security.browser.authentication.DefaultAuthenticationFailureHandl
 import com.wlf.security.core.properties.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.ValidateCodeFilter;
-import com.wlf.security.core.validate.code.ImageCodeCreator;
-import com.wlf.security.core.validate.code.DefaultImageCodeCreator;
+import com.wlf.security.core.validate.code.image.DefaultImageCodeCreator;
+import com.wlf.security.core.validate.code.image.ImageCodeCreator;
+
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -37,6 +38,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final String LOGIN_CONTROLLER = "/authentication/require"; 
 	
 	private static final String IMAGE_CODE_CONTROLLER = "/code/image"; 
+	private static final String SMS_CODE_CONTROLLER = "/code/sms"; 
 	
 	@Autowired
 	private SecurityProperties securityProperties;
@@ -85,14 +87,15 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 				 .tokenRepository(persistentTokenRepository())
 				 .tokenValiditySeconds(securityProperties.getBrowser().getRemberMeSeconds())
 				 .userDetailsService(defaultUserDetailService)
-				 //.rememberMeParameter(securityProperties.getBrowser().getRemberMeName())
-				 //.rememberMeCookieName(securityProperties.getBrowser().getRemberMeName())
+				 .rememberMeParameter(securityProperties.getBrowser().getRemberMeName())
+				 .rememberMeCookieName(securityProperties.getBrowser().getRemberMeName())
 				 .and()
 			 .authorizeRequests()
 				 .antMatchers(
 						 LOGIN_CONTROLLER,
 						 securityProperties.getBrowser().getLoginPage(),
-						 IMAGE_CODE_CONTROLLER).permitAll()
+						 IMAGE_CODE_CONTROLLER,
+						 SMS_CODE_CONTROLLER).permitAll()
 				 .anyRequest()
 				 .authenticated()
 				 .and()

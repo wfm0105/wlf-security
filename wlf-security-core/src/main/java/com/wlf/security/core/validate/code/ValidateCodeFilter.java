@@ -29,6 +29,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.wlf.security.core.properties.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
+import com.wlf.security.core.validate.code.image.ImageCode;
 
 /**
  * 

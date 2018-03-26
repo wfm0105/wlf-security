@@ -1,4 +1,4 @@
-package com.wlf.security.core.validate.code;
+package com.wlf.security.core.validate.code.image;
 
 public class ImageCodeStringInfo {
 

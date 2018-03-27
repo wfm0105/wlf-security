@@ -28,6 +28,8 @@ public class Constants {
 
 	public static final String DEFAULT_FORM_AUTHENTICATION_URL = "/authentication/form";
 	
+	public static final String DEFAULT_MOBLIE_AUTHENTICATION_URL = "/authentication/mobile";
+	
 	public static final String DEFAULT_IMAGE_CODE_PARAM_NAME = "imageCode";
 
 	public static final int DEFAULT_IMAGE_CODE_WIDTH = 100;

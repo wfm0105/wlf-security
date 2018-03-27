@@ -4,6 +4,9 @@ import com.wlf.security.core.common.StoreMethod;
 
 public class SmsCodeProperties {
 
+	// 短信验证码的拦截请求
+	private String smsCodeUrl = Constants.DEFAULT_MOBLIE_AUTHENTICATION_URL;
+	
 	// 短信验证码的存储方式
 	private StoreMethod smsCodeStoreMethod = Constants.DEFAULT_SMS_CODE_STORE_METHOD;
 
@@ -25,6 +28,14 @@ public class SmsCodeProperties {
 	// 短信验证码的传参名
 	private String smsCodeParamName = Constants.DEFAULT_SMS_CODE_PARAM_NAME;
 	
+	public String getSmsCodeUrl() {
+		return smsCodeUrl;
+	}
+
+	public void setSmsCodeUrl(String smsCodeUrl) {
+		this.smsCodeUrl = smsCodeUrl;
+	}
+
 	public StoreMethod getSmsCodeStoreMethod() {
 		return smsCodeStoreMethod;
 	}

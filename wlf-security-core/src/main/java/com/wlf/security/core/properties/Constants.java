@@ -68,7 +68,9 @@ public class Constants {
 	
 	public static final int DEFAULT_SMS_CODE_EXPIRE = 60;
 	
-	public static final String DEFAULT_SMS_CODE_PARAM_NAME = "mobile";
+	public static final String DEFAULT_SMS_CODE_PHONE_PARAM_NAME = "mobile";
+	
+	public static final String DEFAULT_SMS_CODE_PARAM_NAME = "smsCode";
 	
 	public static final String DEFAULT_PARAMETER_NAME_CODE_IMAGE = "image";
 	

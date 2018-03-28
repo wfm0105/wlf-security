@@ -25,6 +25,9 @@ public class SmsCodeProperties {
 	// 短信验证码的超时时间
 	private int smsCodeExpire = Constants.DEFAULT_SMS_CODE_EXPIRE;
 	
+	// 短信验证码的手机号传参名
+	private String smsCodePhoneParamName = Constants.DEFAULT_SMS_CODE_PHONE_PARAM_NAME;
+	
 	// 短信验证码的传参名
 	private String smsCodeParamName = Constants.DEFAULT_SMS_CODE_PARAM_NAME;
 	
@@ -82,6 +85,14 @@ public class SmsCodeProperties {
 
 	public void setSmsCodeExpire(int smsCodeExpire) {
 		this.smsCodeExpire = smsCodeExpire;
+	}
+
+	public String getSmsCodePhoneParamName() {
+		return smsCodePhoneParamName;
+	}
+
+	public void setSmsCodePhoneParamName(String smsCodePhoneParamName) {
+		this.smsCodePhoneParamName = smsCodePhoneParamName;
 	}
 
 	public String getSmsCodeParamName() {

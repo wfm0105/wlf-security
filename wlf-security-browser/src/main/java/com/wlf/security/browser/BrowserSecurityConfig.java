@@ -17,6 +17,8 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import com.wlf.security.browser.authentication.DefaultAuthenticationFailureHandler;
+import com.wlf.security.core.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
+import com.wlf.security.core.authentication.mobile.SmsCodeFilter;
 import com.wlf.security.core.properties.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.ValidateCodeFilter;
@@ -50,6 +52,9 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 	private DefaultAuthenticationFailureHandler defaultAuthenticationFailureHandler;
 	
 	@Autowired
+	SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+	
+	@Autowired
 	private RedisTemplate<String, String> redisTemplate;
 	
 	@Autowired
@@ -76,7 +81,15 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 		validateCodeFilter.setRedisTemplate(redisTemplate);
 		validateCodeFilter.afterPropertiesSet();
 		
-		http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+		SmsCodeFilter smsCodeFilter = new SmsCodeFilter();
+		
+		smsCodeFilter.setAuthenticationFailureHandler(defaultAuthenticationFailureHandler);
+		smsCodeFilter.setSecurityProperties(securityProperties);
+		smsCodeFilter.setRedisTemplate(redisTemplate);
+		smsCodeFilter.afterPropertiesSet();
+		
+		http.addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class)
+			.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
 			 .formLogin()
 				 .loginPage(LOGIN_CONTROLLER)
 				 .loginProcessingUrl(Constants.DEFAULT_FORM_AUTHENTICATION_URL)
@@ -99,7 +112,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 				 .anyRequest()
 				 .authenticated()
 				 .and()
-			 .csrf().disable();
+			 .csrf().disable()
+			 .apply(smsCodeAuthenticationSecurityConfig);
 		
 	}
 	

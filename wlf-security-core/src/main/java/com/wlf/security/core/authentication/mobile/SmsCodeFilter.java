@@ -29,6 +29,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.wlf.security.core.properties.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
+import com.wlf.security.core.validate.code.ValidateCode;
 import com.wlf.security.core.validate.code.ValidateCodeException;
 import com.wlf.security.core.validate.code.image.ImageCode;
 
@@ -102,7 +103,7 @@ public class SmsCodeFilter extends OncePerRequestFilter implements InitializingB
 		
 		switch(securityProperties.getValidateCode().getSmsCode().getSmsCodeStoreMethod()) {
 			case SESSION : {
-				ImageCode codeInSession = (ImageCode) sessionStrategy.getAttribute(request, securityProperties.getValidateCode().getSmsCode().getSmsCodeSessionKey());
+				ValidateCode codeInSession = (ValidateCode) sessionStrategy.getAttribute(request, securityProperties.getValidateCode().getSmsCode().getSmsCodeSessionKey());
 				if(codeInSession == null || !StringUtils.equalsIgnoreCase(codeInRequest, codeInSession.getCode())) {
 					throw new ValidateCodeException("验证码错误，或已过期！");
 				}

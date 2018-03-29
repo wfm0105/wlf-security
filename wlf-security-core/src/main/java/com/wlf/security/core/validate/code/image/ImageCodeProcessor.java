@@ -23,6 +23,16 @@ import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.impl.AbstractValidateCodeProcessor;
 import com.wlf.util.ImgValidateCodeUtil.Type;
 
+/**
+ * 
+ * 图形验证码处理器，实现了验证码处理模板的抽象方法AbstractValidateCodeProcessor
+ * 1、生成验证码
+ * 2、存储验证码
+ * 3、将验证码返回前端
+ * 
+ * @author wulinfeng
+ *
+ */
 @Component
 public class ImageCodeProcessor extends AbstractValidateCodeProcessor<ImageCode>{
 

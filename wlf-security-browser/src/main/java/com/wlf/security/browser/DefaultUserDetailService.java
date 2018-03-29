@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 
- * 安全认证例子
+ * 认证的业务逻辑
  * 
  * @author wulinfeng
  *

@@ -2,6 +2,13 @@ package com.wlf.security.core.validate.code;
 
 import com.wlf.security.core.properties.Constants;
 
+/**
+ * 
+ * 验证码的种类枚举
+ * 
+ * @author wulinfeng
+ *
+ */
 public enum ValidateCodeType {
 
 	IMAGE{

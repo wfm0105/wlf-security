@@ -4,6 +4,17 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 import com.wlf.security.core.validate.code.ValidateCodeProcessor;
 
+/**
+ * 
+ * 验证码的模板
+ * 1、生成验证码
+ * 2、存储验证码
+ * 3、返回验证码到前端
+ * 
+ * @author wulinfeng
+ *
+ * @param <T>
+ */
 public abstract class AbstractValidateCodeProcessor<T> implements ValidateCodeProcessor {
 	
 	@Override

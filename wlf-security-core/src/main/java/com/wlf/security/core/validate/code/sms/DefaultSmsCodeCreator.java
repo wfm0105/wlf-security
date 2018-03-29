@@ -7,6 +7,13 @@ import org.springframework.stereotype.Component;
 
 import com.wlf.security.core.validate.code.ValidateCode;
 
+/**
+ * 
+ * 短信验证码生成器的默认实现
+ * 
+ * @author wulinfeng
+ *
+ */
 @Component("smsCodeCreator")
 public class DefaultSmsCodeCreator implements SmsCodeCreator {
 

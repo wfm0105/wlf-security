@@ -35,7 +35,9 @@ import com.wlf.security.core.validate.code.image.ImageCode;
 
 /**
  * 
- * 验证码过滤器
+ * 短信验证码过滤器
+ * 1、对指定的post请求进行拦截
+ * 2、验证短信验证码
  * 
  * @author wulinfeng
  *

@@ -11,6 +11,13 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
+/**
+ * 
+ * 将自定义的短信验证码的AuthenticationFilter和provider配置到HttpSecurity中
+ * 
+ * @author wulinfeng
+ *
+ */
 @Component
 public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 

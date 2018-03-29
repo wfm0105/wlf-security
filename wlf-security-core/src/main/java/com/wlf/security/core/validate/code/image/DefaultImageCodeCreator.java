@@ -9,7 +9,7 @@ import com.wlf.util.ImgValidateCodeUtil.Type;
 
 /**
  * 
- * 验证码的默认实现
+ * 图形验证码生成器的默认实现
  * 
  * @author wulinfeng
  *

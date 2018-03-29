@@ -1,5 +1,12 @@
 package com.wlf.security.core.properties;
 
+/**
+ * 
+ * 验证码的配置
+ * 
+ * @author wulinfeng
+ *
+ */
 public class ValidateCodeProperties {
 
 	private ImageCodeProperties imageCode = new ImageCodeProperties();

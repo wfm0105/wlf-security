@@ -12,7 +12,9 @@ import com.wlf.security.core.validate.code.image.ImageCodeCreator;
 
 /**
  * 
- * 启用SecurityProperties
+ * 主配置类
+ * 1、启用SecurityProperties
+ * 2、指定默认的加密方式
  * 
  * @author wulinfeng
  *

@@ -4,6 +4,13 @@ import java.time.LocalDateTime;
 
 import com.wlf.security.core.validate.code.ValidateCode;
 
+/**
+ * 
+ * 图形验证码
+ * 
+ * @author wulinfeng
+ *
+ */
 public class ImageCode extends ValidateCode {
 
 	private String image;

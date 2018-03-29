@@ -2,6 +2,13 @@ package com.wlf.security.core.validate.code;
 
 import java.time.LocalDateTime;
 
+/**
+ * 
+ * 验证码
+ * 
+ * @author wulinfeng
+ *
+ */
 public class ValidateCode {
 
 	protected String code;

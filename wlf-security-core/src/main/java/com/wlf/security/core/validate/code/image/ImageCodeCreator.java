@@ -9,6 +9,13 @@ import java.awt.Color;
  */
 import com.wlf.util.ImgValidateCodeUtil.Type;
 
+/**
+ * 
+ * 图形验证码生成器接口
+ * 
+ * @author wulinfeng
+ *
+ */
 public interface ImageCodeCreator {
 	
 	/**

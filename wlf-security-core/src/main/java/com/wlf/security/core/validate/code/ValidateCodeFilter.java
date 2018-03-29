@@ -34,6 +34,8 @@ import com.wlf.security.core.validate.code.image.ImageCode;
 /**
  * 
  * 验证码过滤器
+ * 1、拦截指定的post请求
+ * 2、验证验证码
  * 
  * @author wulinfeng
  *

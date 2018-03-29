@@ -18,6 +18,13 @@ import com.google.gson.Gson;
 import com.wlf.security.core.properties.LoginType;
 import com.wlf.security.core.properties.SecurityProperties;
 
+/**
+ * 
+ * 验证成功的默认处理
+ * 
+ * @author wulinfeng
+ *
+ */
 @Component("defaultAuthenticationSuccessHandler")
 public class DefaultAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 

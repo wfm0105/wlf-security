@@ -20,6 +20,13 @@ import com.wlf.security.browser.SimpleResponse;
 import com.wlf.security.core.properties.LoginType;
 import com.wlf.security.core.properties.SecurityProperties;
 
+/**
+ * 
+ * 验证失败的默认处理
+ * 
+ * @author wulinfeng
+ *
+ */
 @Component("defaultAuthenticationFailureHandler")
 public class DefaultAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 

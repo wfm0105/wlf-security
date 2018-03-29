@@ -9,6 +9,13 @@ import com.wlf.security.core.validate.code.image.ImageCodeCreator;
 import com.wlf.security.core.validate.code.sms.DefaultSmsCodeSender;
 import com.wlf.security.core.validate.code.sms.SmsCodeSender;
 
+/**
+ * 
+ * 验证码相关工具的默认配置
+ * 
+ * @author wulinfeng
+ *
+ */
 @Configuration
 public class ValidateCodeBeanConfig {
 

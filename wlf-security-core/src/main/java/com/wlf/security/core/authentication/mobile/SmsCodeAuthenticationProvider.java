@@ -9,6 +9,14 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+/**
+ * 
+ * 通过userDetailsService的loadUserByUsername方法返回UserDetails判断是否有该用户
+ * 将结果封装到token中
+ * 
+ * @author wulinfeng
+ *
+ */
 public class SmsCodeAuthenticationProvider implements AuthenticationProvider {
 
 	private UserDetailsService userDetailsService;

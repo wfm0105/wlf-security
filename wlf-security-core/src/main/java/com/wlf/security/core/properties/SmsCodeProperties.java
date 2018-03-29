@@ -2,6 +2,13 @@ package com.wlf.security.core.properties;
 
 import com.wlf.security.core.common.StoreMethod;
 
+/**
+ * 
+ * 短信验证码的配置
+ * 
+ * @author wulinfeng
+ *
+ */
 public class SmsCodeProperties {
 
 	// 短信验证码的拦截请求

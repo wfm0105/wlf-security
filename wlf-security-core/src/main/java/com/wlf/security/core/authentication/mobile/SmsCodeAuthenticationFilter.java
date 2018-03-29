@@ -10,6 +10,16 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.Assert;
 
+/**
+ * 
+ * 短信验证码的认证过滤器
+ * 1、只拦截指定的post请求
+ * 2、将手机号封装到token中
+ * 3、通过AuthenticationManager调用provider进行认证
+ * 
+ * @author wulinfeng
+ *
+ */
 public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 	// ~ Static fields/initializers
 	// =====================================================================================

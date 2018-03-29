@@ -1,5 +1,12 @@
 package com.wlf.security.core.validate.code.image;
 
+/**
+ * 
+ * 图形验证码中的文字信息
+ * 
+ * @author wulinfeng
+ *
+ */
 public class ImageCodeStringInfo {
 
 	private String code;

@@ -30,8 +30,8 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.wlf.security.core.Constants;
 import com.wlf.security.core.common.StoreMethod;
-import com.wlf.security.core.properties.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.image.ImageCode;
 
@@ -66,6 +66,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 	
 	private AntPathMatcher antPathMatcher = new AntPathMatcher();
 	
+	@Autowired
 	private RedisTemplate<String, String> redisTemplate;
 	
 	@Override

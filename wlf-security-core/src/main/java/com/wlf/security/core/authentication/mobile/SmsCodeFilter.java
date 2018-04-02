@@ -27,7 +27,7 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.wlf.security.core.properties.Constants;
+import com.wlf.security.core.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.ValidateCode;
 import com.wlf.security.core.validate.code.ValidateCodeException;
@@ -40,8 +40,10 @@ import com.wlf.security.core.validate.code.image.ImageCode;
  * 2、验证短信验证码
  * 
  * @author wulinfeng
+ * @deprecated 使用validateCodeFilter替代该过滤器
  *
  */
+@Deprecated
 public class SmsCodeFilter extends OncePerRequestFilter implements InitializingBean{
 
 	private Logger logger = LoggerFactory.getLogger(SmsCodeFilter.class);

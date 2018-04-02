@@ -1,5 +1,6 @@
 package com.wlf.security.core.properties;
 
+import com.wlf.security.core.Constants;
 import com.wlf.security.core.common.StoreMethod;
 
 /**

@@ -14,7 +14,7 @@ import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import com.wlf.security.core.properties.Constants;
+import com.wlf.security.core.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.ValidateCode;
 import com.wlf.security.core.validate.code.impl.AbstractValidateCodeProcessor;

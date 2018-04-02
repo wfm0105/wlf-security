@@ -1,4 +1,4 @@
-package com.wlf.security.core.properties;
+package com.wlf.security.core;
 
 import java.awt.Color;
 
@@ -13,7 +13,13 @@ import com.wlf.util.ImgValidateCodeUtil.Type;
  *
  */
 public class Constants {
+	
+	public static final String LOGIN_CONTROLLER = "/authentication/require";
 
+	public static final String IMAGE_CODE_CONTROLLER = "/code/image";
+
+	public static final String SMS_CODE_CONTROLLER = "/code/sms";
+	
 	public static final String DEFAULT_LOGIN_PAGE = "/defaultLogin.html";
 
 	public static final String DEFAULT_FAILURE_PAGE = "/defaultFailure.html";

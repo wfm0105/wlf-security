@@ -1,6 +1,6 @@
 package com.wlf.security.core.validate.code;
 
-import com.wlf.security.core.properties.Constants;
+import com.wlf.security.core.Constants;
 
 /**
  * 

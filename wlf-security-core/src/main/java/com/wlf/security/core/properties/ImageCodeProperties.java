@@ -2,6 +2,7 @@ package com.wlf.security.core.properties;
 
 import java.awt.Color;
 
+import com.wlf.security.core.Constants;
 import com.wlf.security.core.common.StoreMethod;
 import com.wlf.util.ImgValidateCodeUtil.Type;
 

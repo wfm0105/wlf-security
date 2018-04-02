@@ -1,5 +1,7 @@
 package com.wlf.security.core.properties;
 
+import com.wlf.security.core.Constants;
+
 /**
  * 
  * web端配置项

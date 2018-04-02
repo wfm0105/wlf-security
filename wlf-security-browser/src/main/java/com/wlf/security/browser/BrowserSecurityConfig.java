@@ -17,11 +17,13 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import com.wlf.security.browser.authentication.DefaultAuthenticationFailureHandler;
+import com.wlf.security.core.Constants;
+import com.wlf.security.core.authentication.AbstractChannelSecurityConfig;
 import com.wlf.security.core.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import com.wlf.security.core.authentication.mobile.SmsCodeFilter;
-import com.wlf.security.core.properties.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.ValidateCodeFilter;
+import com.wlf.security.core.validate.code.ValidateCodeSecurityConfig;
 import com.wlf.security.core.validate.code.image.DefaultImageCodeCreator;
 import com.wlf.security.core.validate.code.image.ImageCodeCreator;
 
@@ -35,27 +37,16 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  *
  */
 @Configuration
-public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
+public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
 
-	private static final String LOGIN_CONTROLLER = "/authentication/require"; 
-	
-	private static final String IMAGE_CODE_CONTROLLER = "/code/image"; 
-	private static final String SMS_CODE_CONTROLLER = "/code/sms"; 
-	
 	@Autowired
 	private SecurityProperties securityProperties;
-	
-	@Autowired
-	private AuthenticationSuccessHandler defaultAuthenticationSuccessHandler;
-
-	@Autowired
-	private DefaultAuthenticationFailureHandler defaultAuthenticationFailureHandler;
 	
 	@Autowired
 	SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 	
 	@Autowired
-	private RedisTemplate<String, String> redisTemplate;
+	ValidateCodeSecurityConfig validateCodeSecurityConfig;
 	
 	@Autowired
 	private DataSource dataSource;
@@ -74,28 +65,34 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	
-		ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+//		ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+//		
+//		validateCodeFilter.setAuthenticationFailureHandler(defaultAuthenticationFailureHandler);
+//		validateCodeFilter.setSecurityProperties(securityProperties);
+//		validateCodeFilter.setRedisTemplate(redisTemplate);
+//		validateCodeFilter.afterPropertiesSet();
 		
-		validateCodeFilter.setAuthenticationFailureHandler(defaultAuthenticationFailureHandler);
-		validateCodeFilter.setSecurityProperties(securityProperties);
-		validateCodeFilter.setRedisTemplate(redisTemplate);
-		validateCodeFilter.afterPropertiesSet();
+//		SmsCodeFilter smsCodeFilter = new SmsCodeFilter();
+//		
+//		smsCodeFilter.setAuthenticationFailureHandler(defaultAuthenticationFailureHandler);
+//		smsCodeFilter.setSecurityProperties(securityProperties);
+//		smsCodeFilter.setRedisTemplate(redisTemplate);
+//		smsCodeFilter.afterPropertiesSet();
 		
-		SmsCodeFilter smsCodeFilter = new SmsCodeFilter();
+		applyPasswordAuthenticationConfig(http);
 		
-		smsCodeFilter.setAuthenticationFailureHandler(defaultAuthenticationFailureHandler);
-		smsCodeFilter.setSecurityProperties(securityProperties);
-		smsCodeFilter.setRedisTemplate(redisTemplate);
-		smsCodeFilter.afterPropertiesSet();
-		
-		http.addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class)
-			.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
-			 .formLogin()
-				 .loginPage(LOGIN_CONTROLLER)
-				 .loginProcessingUrl(Constants.DEFAULT_FORM_AUTHENTICATION_URL)
-				 .successHandler(defaultAuthenticationSuccessHandler)
-				 .failureHandler(defaultAuthenticationFailureHandler)
-				 .and()
+		http.apply(smsCodeAuthenticationSecurityConfig)
+			.and()
+			//.addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class)
+			.apply(validateCodeSecurityConfig)
+			.and()
+			 //.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
+			 //.formLogin()
+				 //.loginPage(LOGIN_CONTROLLER)
+				 //.loginProcessingUrl(Constants.DEFAULT_FORM_AUTHENTICATION_URL)
+				 //.successHandler(defaultAuthenticationSuccessHandler)
+				 //.failureHandler(defaultAuthenticationFailureHandler)
+				 //.and()
 			 .rememberMe()
 				 .tokenRepository(persistentTokenRepository())
 				 .tokenValiditySeconds(securityProperties.getBrowser().getRemberMeSeconds())
@@ -105,15 +102,15 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 				 .and()
 			 .authorizeRequests()
 				 .antMatchers(
-						 LOGIN_CONTROLLER,
+						 Constants.LOGIN_CONTROLLER,
 						 securityProperties.getBrowser().getLoginPage(),
-						 IMAGE_CODE_CONTROLLER,
-						 SMS_CODE_CONTROLLER).permitAll()
+						 Constants.IMAGE_CODE_CONTROLLER,
+						 Constants.SMS_CODE_CONTROLLER).permitAll()
 				 .anyRequest()
 				 .authenticated()
 				 .and()
-			 .csrf().disable()
-			 .apply(smsCodeAuthenticationSecurityConfig);
+			 .csrf().disable();
+//			 .apply(smsCodeAuthenticationSecurityConfig);
 		
 	}
 	

@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import com.wlf.security.core.properties.Constants;
+import com.wlf.security.core.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.image.ImageCode;
 import com.wlf.security.core.validate.code.image.ImageCodeCreator;

@@ -31,7 +31,7 @@ import com.wlf.security.core.validate.code.image.ImageCodeCreator;
 import com.wlf.security.core.validate.code.image.ImageCodeStringInfo;
 import com.wlf.security.core.validate.code.sms.SmsCodeCreator;
 import com.wlf.security.core.validate.code.sms.SmsCodeSender;
-import com.wlf.util.ImgValidateCodeUtil.Type;
+import com.xyt.util.ImgValidateCodeUtil.Type;
 
 /**
  * 

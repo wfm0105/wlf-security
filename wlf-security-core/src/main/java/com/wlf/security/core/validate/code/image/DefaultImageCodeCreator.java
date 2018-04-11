@@ -4,8 +4,8 @@ import java.awt.Color;
 
 import org.springframework.stereotype.Component;
 
-import com.wlf.util.ImgValidateCodeUtil;
-import com.wlf.util.ImgValidateCodeUtil.Type;
+import com.xyt.util.ImgValidateCodeUtil;
+import com.xyt.util.ImgValidateCodeUtil.Type;
 
 /**
  * 

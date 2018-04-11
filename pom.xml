@@ -16,6 +16,7 @@
   	<spring-cloud.version>Dalston.SR5</spring-cloud.version>
   	<wlf.security.version>1.0.0</wlf.security.version>
   	<wlf.ms.version>1.0.0</wlf.ms.version>
+  	<xyt.util.version>1.0.0</xyt.util.version>
   	<guava.version>18.0</guava.version>
   </properties>
   
@@ -37,6 +38,12 @@
 	        <version>${spring-cloud.version}</version>
 	        <scope>import</scope>
 	    </dependency>
+	    
+	    <dependency>
+	  		<groupId>xyt.utils</groupId>
+	  		<artifactId>xyt-utils-normal</artifactId>
+	  		<version>${xyt.util.version}</version>
+	  	</dependency>    
 	    
 	    <dependency>
 	        <groupId>com.google.guava</groupId>

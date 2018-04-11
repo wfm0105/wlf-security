@@ -3,7 +3,7 @@ package com.wlf.security.core;
 import java.awt.Color;
 
 import com.wlf.security.core.common.StoreMethod;
-import com.wlf.util.ImgValidateCodeUtil.Type;
+import com.xyt.util.ImgValidateCodeUtil.Type;
 
 /**
  * 

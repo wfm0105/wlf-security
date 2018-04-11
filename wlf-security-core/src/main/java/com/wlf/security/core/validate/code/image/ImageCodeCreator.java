@@ -7,7 +7,7 @@ import java.awt.Color;
  * 验证码的创建接口
  * 
  */
-import com.wlf.util.ImgValidateCodeUtil.Type;
+import com.xyt.util.ImgValidateCodeUtil.Type;
 
 /**
  * 

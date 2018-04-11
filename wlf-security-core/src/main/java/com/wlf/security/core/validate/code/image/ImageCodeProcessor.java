@@ -21,7 +21,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import com.wlf.security.core.Constants;
 import com.wlf.security.core.properties.SecurityProperties;
 import com.wlf.security.core.validate.code.impl.AbstractValidateCodeProcessor;
-import com.wlf.util.ImgValidateCodeUtil.Type;
+import com.xyt.util.ImgValidateCodeUtil.Type;
 
 /**
  * 
